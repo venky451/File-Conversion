@@ -37,23 +37,16 @@ def save_as_xml(data, file_path):
     for entry in data:
         user = ET.SubElement(root, "User")  # Create a 'User' element for each entry
         for key, value in entry.items():
-            ET.SubElement(user, key).text = value  # Add sub-elements with corresponding values
-    tree = ET.ElementTree(root)  # Create an ElementTree object
-    tree.write(file_path)  # Write the XML to the file
+            ET.SubElement(user, key).text = value  # Add sub-elements 
+    tree = ET.ElementTree(root) 
+    tree.write(file_path)  # XML File format.
 
 def download_data(file_format, data):
-    """
-    Prompts the user to select a file path and then saves the data in the selected format.
-
-    Parameters:
-    - file_format (str): The format to save the file in ('json', 'txt', 'xml', 'xlsx')
-    - data (list of dict): The data to save
-    """
-    # Prompt the user to select a file path for saving
+    # Prompt the user for file path.
     file_path = filedialog.asksaveasfilename(defaultextension=f".{file_format}", 
                                              filetypes=[(file_format.upper(), f"*.{file_format}")])
     if not file_path:
-        return  # Exit if no file path was selected
+        return 
     
     # Save data in the selected format
     if file_format == 'json':
@@ -63,12 +56,12 @@ def download_data(file_format, data):
     elif file_format == 'xml':
         save_as_xml(data, file_path)
     elif file_format == 'xlsx':
-        wb = Workbook()  # Create a new workbook
-        ws = wb.active  # Get the active worksheet
-        ws.title = "UserData"  # Set the title of the worksheet
-        ws.append(["Name", "Email ID", "Phone Number", "Branch"])  # Add the header row
+        wb = Workbook()  
+        ws = wb.active  
+        ws.title = "UserData"  
+        ws.append(["Name", "Email ID", "Phone Number", "Branch"])  
         for entry in data:
-            ws.append([entry['Name'], entry['Email'], entry['Phone'], entry['Branch']])  # Append each entry
+            ws.append([entry['Name'], entry['Email'], entry['Phone'], entry['Branch']])  # Append each entry into the file
         wb.save(file_path)  # Save the workbook to the file
     
     # Inform the user that the file has been downloaded

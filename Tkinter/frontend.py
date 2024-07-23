@@ -69,5 +69,5 @@ def create_window():
     clear_button = tk.Button(frame, text="Clear", font=("Arial", 20), bg="#FF9800")
     clear_button.grid(row=7, column=2, columnspan=2, padx=10, pady=10)
 
-    # Return the window and widgets to be used in the main application
+    # Return to be used in the main application
     return root, name_entry, email_entry, phone_entry, branch_vars, file_format_var, submit_button, download_button, clear_button
