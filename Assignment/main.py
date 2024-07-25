@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 from frontend import create_window
-from backend import create_excel_file, save_data_to_excel, download_data
+from backend import save_data_to_excel, download_data
 
 def main():
     root, name_entry, email_entry, phone_entry, branch_vars, file_format_var, submit_button, download_button, clear_button = create_window()
@@ -10,7 +10,6 @@ def main():
     submitted_data = []
 
     def submit_data():
-    
         name = name_entry.get()
         email = email_entry.get()
         phone = phone_entry.get()
@@ -34,12 +33,8 @@ def main():
             messagebox.showerror("Error", "All fields are required!")
 
     def download_file():
-        if submitted_data:
-            file_format = file_format_var.get()
-            download_data(file_format, submitted_data)
-        else:
-            # error message will be shown if no data is available for download.
-            messagebox.showerror("Error", "Enter the Data First.")
+        file_format = file_format_var.get()
+        download_data(file_format)
 
     def clear_input():
         name_entry.delete(0, tk.END)
