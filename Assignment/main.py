@@ -4,9 +4,6 @@ from frontend import create_window
 from backend import create_excel_file, save_data_to_excel, download_data
 
 def main():
-    # Create the initial Excel file if it doesn't exist
-    create_excel_file()
-
     root, name_entry, email_entry, phone_entry, branch_vars, file_format_var, submit_button, download_button, clear_button = create_window()
 
     # This will store the data that has been submitted

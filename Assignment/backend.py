@@ -5,16 +5,9 @@ from openpyxl import Workbook
 import xml.etree.ElementTree as ET
 from tkinter import filedialog, messagebox
 
-# Excel File Path where the data will append from the user.
-excel_file = r"C:\Users\T.Venkateshwar Reddy\OneDrive\Desktop\data.xlsx"
-
-def create_excel_file():
-    if not os.path.exists(excel_file):
-        wb = Workbook()  # Create a new workbook
-        ws = wb.active  
-        ws.title = "UserData"  
-        ws.append(["Name", "Email ID", "Phone Number", "Branch"])
-        wb.save(excel_file)  # Save the workbook to the file
+# Define the Excel file path
+current_dir = os.getcwd()
+excel_file = os.path.join(current_dir, "data.xlsx")
 
 def save_data_to_excel(name, email, phone, branch_str):   #here the user data will be added to the excel file
 
