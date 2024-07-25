@@ -10,11 +10,6 @@ current_dir = os.getcwd()
 excel_file = os.path.join(current_dir, "data.xlsx")
 
 def save_data_to_excel(name, email, phone, branch_str):
-    if not os.path.exists(excel_file):
-        wb = Workbook()
-        ws = wb.active
-        ws.append(["Name", "Email ID", "Phone Number", "Branch"])
-        wb.save(excel_file)
     wb = openpyxl.load_workbook(excel_file)
     ws = wb.active
     ws.append([name, email, phone, branch_str])
