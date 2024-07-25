@@ -46,7 +46,7 @@ def save_as_xml(data, file_path):
         user = ET.SubElement(root, "User")
         for key, value in entry.items():
             ET.SubElement(user, key).text = value
-        user.tail = '\n'  # Add a newline character after each user's data
+        user.tail = '\n\n'  # Add a newline character after each user's data
     tree = ET.ElementTree(root)
     tree.write(file_path, encoding='utf-8', xml_declaration=True)
 
