@@ -11,7 +11,7 @@ def create_window():
     root.title("User Data Form")
     root.configure(background="#aba8a7")
 
-    label = tk.Label(root, text="User Data Form", font=("TimesNewRoman", 35), bg="#aba8a7", fg="#333333")
+    label = tk.Label(root, text="User Data Form", font=("Arial", 35), bg="#aba8a7", fg="#333333")
     label.pack(pady=20)   #heading 
 
     frame = tk.Frame(root, bg="#F5F5F5")
