@@ -3,6 +3,9 @@ from tkinter import messagebox
 from frontend import create_window
 from backend import save_data_to_excel, download_data
 
+#importing the necessary modules and functions from the frontend and backend files
+
+#main function 
 def main():
     root, name_entry, email_entry, phone_entry, branch_vars, file_format_var, submit_button, download_button, clear_button = create_window()
 
@@ -19,8 +22,9 @@ def main():
         if name and email and phone and branches:
             branch_str = ', '.join(branches)
             save_data_to_excel(name, email, phone, branch_str)
-            messagebox.showinfo("Success", "Data saved successfully!")
+            messagebox.showinfo("Success", "Data saved successfully!")   #pop up will be displayed when the Submit button is clicked 
             nonlocal submitted_data
+
             # Store the submitted data in a structured format
             submitted_data = [{
                 "Name": name,
@@ -32,10 +36,13 @@ def main():
             # error message will be displayed if there is any missing field.
             messagebox.showerror("Error", "All fields are required!")
 
+#This function is used to download the files 
     def download_file():
         file_format = file_format_var.get()
         download_data(file_format)
 
+
+#For Clearing the inputs entered by the User
     def clear_input():
         name_entry.delete(0, tk.END)
         email_entry.delete(0, tk.END)
@@ -50,6 +57,6 @@ def main():
 
     root.mainloop()
 
-# Ensure that the main function is called when the script is executed
+# main function is called when the script is executed
 if __name__ == "__main__":
     main()
